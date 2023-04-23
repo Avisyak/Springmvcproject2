@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+<div th:insert="header.html"></div>
+  <h1 class="text-center">Department Tables</h1>
+  <hr>
+    <div class="container-fluid">
+        <div class="card">
+           <div class="card-header bg-primary text-white text-center">
+               <h4>Department Details</h4>
+           </div> 
+           	<form action="/department" method="post">
+				<div class="card-body">
+					<div class="row m-2">
+						<div class="col-4">Name</div>
+						<div class="col-6">
+							<input type="text" name="dept_name" class="form-control">
+						</div>
+					</div>
+					<div class="row m-2">
+						<div class="col-4">HOD</div>
+						<div class="col-6">
+							<input type="text" name="dept_hod" class="form-control">
+						</div>
+					</div>
+					<div class="row m-2">
+						<div class="col-4">Phone</div>
+						<div class="col-6">
+							<input type="text" name="dept_phone" class="form-control">
+						</div>
+					</div>
+					<div class="row m-2">
+						<div class="col-4"></div>
+						<div class="col-6">
+							<input type="submit" value="Add" class="btn btn-success">
+						</div>
+					</div>
+
+				</div>
+			</form>
+
+			<div class="card-footer bg-warning text-white text-center">copyright@2023</div> 
+        
+        </div>
+    
+    </div>
+  
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+<div th:insert="header.html"></div>
+<h1>Employee Details</h1>
+	<hr>
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h4>AddEmployee Details</h4>
+
+			</div>
+			<form action="/updateemp" method="post" th:object="${empmodel}">
+				<div class="card-body">
+					<div class="row m-2">
+						<div class="col-4">Firstname</div>
+						<div class="col-6">
+							<input type="text" th:field="*{fname}" class="form-control">
+						</div>
+					</div>
+					<div class="row m-2">
+						<div class="col-4">Lastname</div>
+						<div class="col-6">
+							<input type="text" th:field="*{fname}" class="form-control">
+						</div>
+					</div>
+					
+					<div class="row m-2">
+						<div class="col-4">Phone</div>
+						<div class="col-6">
+							<input type="text" th:field="*{phone}" class="form-control">
+						</div>
+					</div>
+					
+					    <div class="row m-2">
+						<div class="col-4">Department</div>
+						<div class="col-6">
+							<input type="text"  th:field="*{department}" class="form-control">
+							 
+						</div>
+					    </div>
+					    
+				<div class="row m-2">
+					<div class="col-4">Projects</div>
+					<div class="col-6">
+						<input type="checkbox" th:field="*{project}" value="project_1"> Project_1
+						<input type="checkbox" th:field="*{project}"value="project_2"> Project_2
+						<input type="checkbox" th:field="*{project}" value="project_3"> Project_3
+						<input type="checkbox" th:field="*{project}" value="project_4"> Project_4
+						<input type="checkbox" th:field="*{project}" value="project_5"> Project_5
+						<input type="checkbox" th:field="*{project}" value="project_6"> Project_6
+					</div>
+				</div>
+				<div class="row m-2">
+						<div class="col-4">Country</div>
+						<div class="col-6">
+							<input type="text" th:field="*{address.country}" class="form-control">
+						</div>
+					    </div>
+					    <div class="row m-2">
+						<div class="col-4">City</div>
+						<div class="col-6">
+							<input type="text" th:field="*{address.country}" class="form-control">
+						</div>
+					    </div>
+					    
+			
+				
+					<div class="row m-2">
+						<div class="col-4"></div>
+						<div class="col-6">
+							<input type="submit" value="update" class="btn btn-success">
+						</div>
+					</div>
+
+				</div>
+				<input type="hidden" th:field="*{id}">
+			</form>
+
+			<div class="card-footer bg-warning text-white text-center">copyright@2023</div>
+		</div>
+
+	</div>
+
+
+</body>
+</html>

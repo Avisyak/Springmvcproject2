@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+<div th:insert="header.html"></div>
+<h1 class="text-center">Employee Details</h1>
+
+	<hr>
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h4>AddEmployee Details</h4>
+
+			</div>
+			<form action="/employee" method="post">
+				<div class="card-body">
+					<div class="row m-2">
+						<div class="col-4">Firstname</div>
+						<div class="col-6">
+							<input type="text" name="fname" class="form-control">
+						</div>
+					</div>
+					<div class="row m-2">
+						<div class="col-4">Lastname</div>
+						<div class="col-6">
+							<input type="text" name="lname" class="form-control">
+						</div>
+					</div>
+					<div class="row m-2">
+						<div class="col-4">Gender</div>
+						<div class="col-6">
+							<input type="radio" name="gender" value="male">Male
+							<input type="radio" name="gender" value="female">Female
+						</div>
+					</div>
+					<div class="row m-2">
+						<div class="col-4">Phone</div>
+						<div class="col-6">
+							<input type="text" name="phone" class="form-control">
+						</div>
+					</div>
+					
+					<div class="row m-2">
+						<div class="col-4">Email</div>
+						<div class="col-6">
+							<input type="text" name="email" class="form-control">
+						</div>
+					</div>
+				
+					<div class="row m-2">
+						<div class="col-4">Company</div>
+						<div class="col-6">
+							<input type="text" name="company" class="form-control">
+						</div>
+					</div>
+					<div class="row m-2">
+						<div class="col-4">Post</div>
+						<div class="col-6">
+							<input type="text" name="post" class="form-control">
+						</div>
+					</div>
+						<div class="row m-2">
+						<div class="col-4">Salary</div>
+						<div class="col-6">
+							<input type="text" name="salary" class="form-control">
+						</div>
+					    </div>
+					    <div class="row m-2">
+						<div class="col-4">Department</div>
+						<div class="col-6">
+							<select  name="department" class="form-control">
+							   <option value="">Select</option>
+							   <option th:each="dpt: ${deptList}" th:value="${dpt.id}">[[${dpt.dept_name}]]</option>
+							 </select>  
+						</div>
+					    </div>
+					    
+				<div class="row m-2">
+					<div class="col-4">Projects</div>
+					<div class="col-6">
+						<input type="checkbox" name="project" value="project_1"> Project_1
+						<input type="checkbox" name="project" value="project_2"> Project_2
+						<input type="checkbox" name="project" value="project_3"> Project_3
+						<input type="checkbox" name="project" value="project_4"> Project_4
+						<input type="checkbox" name="project" value="project_5"> Project_5
+						<input type="checkbox" name="project" value="project_6"> Project_6
+					</div>
+				</div>
+				<div class="row m-2">
+						<div class="col-4">Country</div>
+						<div class="col-6">
+							<input type="text" name="address.country" class="form-control">
+						</div>
+					    </div>
+					    <div class="row m-2">
+						<div class="col-4">City</div>
+						<div class="col-6">
+							<input type="text" name="address.city" class="form-control">
+						</div>
+					    </div>
+					    
+				 <div class="row m-2">
+					<div class="col-4">State</div>
+					<div class="col-6">
+						 
+						   <select name="address.state" class="form-control">
+						   
+						     <option value="">Select</option>
+						     <option value="state-1">State-1</option>
+						     <option value="state-2">State-2</option>
+						     <option value="state-3">State-3</option>
+						     <option value="state-4">State-4</option>
+						     <option value="state-5">State-5</option>
+						     <option value="state-6">State-6</option>
+						     <option value="state-7">State-7</option>
+						     
+						   </select>
+						 
+					</div>
+				</div>
+				
+					<div class="row m-2">
+						<div class="col-4"></div>
+						<div class="col-6">
+							<input type="submit" value="Add" class="btn btn-success">
+						</div>
+					</div>
+
+				</div>
+			</form>
+
+			<div class="card-footer bg-warning text-white text-center">copyright@2023</div>
+		</div>
+
+	</div>
+
+
+</body>
+</html>

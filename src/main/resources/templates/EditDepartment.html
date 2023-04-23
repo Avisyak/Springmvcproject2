@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+<div th:insert="header.html"></div>
+<h1 class="text-center">Edit Department</h1>
+<hr>
+    <div class="container-fluid">
+         <div class="card">
+              <div class="card-header bg-primary text-center text-white">
+                <h4>Department List</h4>
+              </div>
+              
+             <form action="/update" method="post" th:object=${deptmodel}>
+               <div class="card-body">
+               
+                   <div class="row m-2">
+                      <div class="col-4">Name</div>
+                      <div class="col-6">
+                          <input type="text" th:field="*{dept_name}" class="form-control">   
+                      </div>
+                   </div>
+                   
+                   <div class="row m-2">
+                      <div class="col-4">HOD</div>
+                      <div class="col-6">
+                          <input type="text" th:field="*{dept_hod}" class="form-control">   
+                      </div>
+                   </div>
+                   
+                   <div class="row m-2">
+                      <div class="col-4">Phone</div>
+                      <div class="col-6">
+                          <input type="text" th:field="*{dept_phone}" class="form-control">   
+                      </div>
+                   </div>
+                   
+                   <div class="row m-2">
+                      <div class="col-4"></div>
+                      <div class="col-6">
+                          <input type="submit" value="Update" class="btn btn-success">   
+                      </div>
+                   </div>
+                   
+                       
+               </div>
+                <input type="hidden" th:field="*{id}">  
+             
+             </form> 
+             <div class="card-footer bg-warning text-white text-center">copyright@2023</div>
+         
+         </div>
+    
+    </div>
+
+
+</body>
+</html>
