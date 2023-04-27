@@ -6,6 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+
+@Data
 @Entity
 @Table(name="department_tbl")
 public class Department {

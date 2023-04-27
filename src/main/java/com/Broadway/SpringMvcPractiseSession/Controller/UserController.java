@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.Broadway.SpringMvcPractiseSession.Model.User;
 import com.Broadway.SpringMvcPractiseSession.Service.UserService;
 
+import lombok.extern.java.Log;
+
+@Log
 @Controller
 public class UserController {
 	
@@ -32,9 +35,11 @@ public class UserController {
 	public String getloginData(@ModelAttribute User user,Model model) {
 		User usr= service.userLogin(user.getUsername(), user.getPassword());
 		if(usr!= null) {
+			log.info("=======Login Successs=======");
 			model.addAttribute("uname",user.getUsername());
 			return "Home";
 		}
+		log.info("======login Failed======");
 		model.addAttribute("error","User not found");
 		return "LoginForm";
 		
