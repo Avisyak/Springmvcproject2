@@ -1,5 +1,7 @@
 package com.Broadway.SpringMvcPractiseSession.Controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,10 @@ public class EmployeeController {
 	private DepartmentService deptService;
 	
 	@GetMapping("/employee")
-	public String getEmployee(Model model) {
+	public String getEmployee(Model model,HttpSession session) {
+		if(session.getAttribute("activeuser") ==null) {
+			   return "LoginForm";
+		   }
 		model.addAttribute("deptList",deptService.getDepartment());
 		
 		

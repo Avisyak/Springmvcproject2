@@ -1,5 +1,7 @@
 package com.Broadway.SpringMvcPractiseSession.Controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,16 +34,18 @@ public class UserController {
 	}
 	
 	@PostMapping("/login")
-	public String getloginData(@ModelAttribute User user,Model model) {
-		User usr= service.userLogin(user.getUsername(), user.getPassword());
-		if(usr!= null) {
-			log.info("=======Login Successs=======");
-			model.addAttribute("uname",user.getUsername());
-			return "Home";
+	public String getloginData(@ModelAttribute User user,Model model,HttpSession session) {
+		User usr = service.userLogin(user.getUsername(), user.getPassword());
+		if(usr!=null) {
+			session.setAttribute("activeuser", usr);
+			session.setMaxInactiveInterval(200);
+			log.info("=======login success=====");
+			
 		}
-		log.info("======login Failed======");
+		log.info("======login failed=====");
 		model.addAttribute("error","User not found");
 		return "LoginForm";
+		
 		
 	}
 	@GetMapping("/signup")
@@ -54,6 +58,12 @@ public class UserController {
 		service.userSignup(user);
 		return "LoginForm";
 		
+		
+	}
+	@GetMapping("/logout")
+	public String getLogout(HttpSession session) {
+		session.invalidate();
+		return "LoginForm";
 		
 	}
 

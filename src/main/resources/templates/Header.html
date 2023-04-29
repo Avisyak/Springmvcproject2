@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -48,9 +48,10 @@
         
         
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="text" placeholder="Search">
-        <a href="/login"><button class="btn btn-primary" type="button">Logout</button></a>
+      <form class="d-flex"> 
+       <p style="color:yellow" th:if="${session.activeuser !=null}">Welcome:[[${session.activeuser.fname}]]</p>&nbsp; &nbsp;
+        <a href="/logout"><button class="btn btn-primary" type="button">Logout</button></a> 
+        
       </form>
     </div>
   </div>

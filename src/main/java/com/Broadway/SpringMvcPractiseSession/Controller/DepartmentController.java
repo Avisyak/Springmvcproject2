@@ -1,5 +1,7 @@
 package com.Broadway.SpringMvcPractiseSession.Controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +20,10 @@ public class DepartmentController {
 	private DepartmentService depService;
 	
 	@GetMapping("/department")
-	public String getDept() {
+	public String getDept(HttpSession session) {
+		if(session.getAttribute("activeuser") ==null) {
+			   return "LoginForm";
+		   }
 		return "AddDepartment";
 		
 	}
