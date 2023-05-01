@@ -37,8 +37,10 @@ public class UserController {
 	public String getloginData(@ModelAttribute User user,Model model,HttpSession session) {
 		User usr = service.userLogin(user.getUsername(), user.getPassword());
 		if(usr!=null) {
-			session.setAttribute("activeuser", usr);
-			session.setMaxInactiveInterval(200);
+			
+			 session.setAttribute("activeuser", usr); 
+			 session.setMaxInactiveInterval(200);
+			 
 			log.info("=======login success=====");
 			
 		}
