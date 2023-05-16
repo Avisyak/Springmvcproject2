@@ -1,5 +1,7 @@
 package com.Broadway.SpringMvcPractiseSession.Controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.Broadway.SpringMvcPractiseSession.Model.Employee;
 import com.Broadway.SpringMvcPractiseSession.Service.DepartmentService;
 import com.Broadway.SpringMvcPractiseSession.Service.EmployeeService;
+import com.Broadway.SpringMvcPractiseSession.utils.EmployeeExcelView;
+import com.Broadway.SpringMvcPractiseSession.utils.EmployeePdfView;
 
 @Controller
 public class EmployeeController {
@@ -74,7 +79,32 @@ public class EmployeeController {
 		
 		
 	}
+	@GetMapping("/excel")
+	public ModelAndView exportToExcel() {
+		ModelAndView m =  new ModelAndView();
+		m.setView(new EmployeeExcelView());
 
-	
+		//read data from DB
+		List<Employee> list = empService.getAllEmp();
+		//send to Excel Impl class
+		m.addObject("list", list);
+
+		return m;
+	}
+	/***
+	 * 9. export data to PDF file
+	 */
+	@GetMapping("/pdf")
+	public ModelAndView exportToPdf() {
+		ModelAndView m = new ModelAndView();
+		m.setView(new EmployeePdfView());
+		
+		//read data from DB
+		List<Employee> list = empService.getAllEmp();
+		//send to Excel Impl class
+		m.addObject("list", list);
+
+		return m;
+	}
 
 }
